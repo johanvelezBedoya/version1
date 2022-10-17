@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Buzon;
+use App\Models\Notificacione;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -17,13 +17,13 @@ class NotificacioneSeeder extends Seeder
     {
         //
 
-        $buzon = new Buzon();
+        $notificacione = new Notificacione();
 
-        $buzon->reading ="true";
-        $buzon->tiponotificacione_id = "1";
-        $buzon->user_id ="5";
+        $notificacione->reading ="true";
+        $notificacione->tiponotificacione_id = "1";
+        $notificacione->user_id ="5";
 
-        $buzon->save();
+        $notificacione->save();
 
         //
     }
