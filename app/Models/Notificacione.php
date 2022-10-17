@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Notificacione extends Model
 {
+    protected $guarded = [];
+
     use HasFactory;
     public function tiponotificacione(){
         return $this->belongsTo('App\Models\Tiponotificacione');

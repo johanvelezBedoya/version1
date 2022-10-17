@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ciudade extends Model
 {
+    protected $guarded = [];
+
     use HasFactory;
 
     public function users(){

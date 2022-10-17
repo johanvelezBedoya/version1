@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class Tipopersona extends Model
 {
     use HasFactory;
+    
+    protected $guarded = [];
 
     public function users(){
         return $this->hasMany('App\Models\User');

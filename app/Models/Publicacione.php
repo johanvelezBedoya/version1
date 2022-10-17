@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Publicacione extends Model
 {
+
+    
     use HasFactory;
 
     protected $guarded = [];

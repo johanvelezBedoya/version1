@@ -12,9 +12,7 @@ class Departamento extends Model
 
     //protected $guarded = [];
 
-    protected $fillable = [
-        'nombre_departamento',
-    ];
+    protected $guarded = [];
 
     public function ciudades(){
         return $this->hasMany('App\Models\Ciudade');
