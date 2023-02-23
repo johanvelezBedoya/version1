@@ -9,6 +9,8 @@ use App\Http\Controllers\Api\EmprendimientoController;
 use App\Http\Controllers\Api\FollowerController;
 use App\Http\Controllers\Api\GeneroController;
 use App\Http\Controllers\Api\InversionistaController;
+use App\Http\Controllers\Api\LoginController;
+use App\Http\Controllers\Api\MultimediaController;
 use App\Http\Controllers\Api\NotificacioneController;
 use App\Http\Controllers\Api\PublicacioneController;
 use App\Http\Controllers\Api\ReaccioneController;
@@ -16,16 +18,7 @@ use App\Http\Controllers\Api\TipodocumentoController;
 use App\Http\Controllers\Api\TiponotificacioneController;
 use App\Http\Controllers\Api\TipopersonaController;
 use App\Http\Controllers\Api\UserController;
-use App\Models\Ciudade;
-use App\Models\Comentario;
-use App\Models\Follower;
-use App\Models\Genero;
-use App\Models\Notificacione;
-use App\Models\Reaccione;
-use App\Models\Tipodocumento;
-use App\Models\Tiponotificacione;
-use App\Models\Tipopersona;
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,14 +34,19 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 // Route::post('buzons', [BuzonController::class, 'store'])->name('api.v1.buzons.store');
 
 // Route::get('buzons', [BuzonController::class, 'index'])->name('api.v1.buzons.index');
 
+
+
+Route::post('login', [LoginController::class, 'login'])->name('api.v1.login');
+
+Route::get('logout', [LoginController::class, 'logout']) ->name('api.v1.logout');
 
 
 
@@ -83,3 +81,5 @@ Route::apiResource('tipodocumentos', TipodocumentoController::class)->names('api
 Route::apiResource('tiponotificaciones', TiponotificacioneController::class)->names('api.v1.tiponotificaciones');
 
 Route::apiResource('generos', GeneroController::class)->names('api.v1.generos');
+
+Route::apiResource('multimedias', MultimediaController::class)->names('api.v1.multimedias');

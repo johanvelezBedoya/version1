@@ -30,7 +30,13 @@ class PublicacioneController extends Controller
      */
     public function store(Request $request)
     {
-        $publicacione=Publicacione::create($request->all());
+        $publicacione = new Publicacione();
+        
+        $file=$request->file("imagen");
+        // $nombreArchivo = "img_".time().".".$file->guessExtension();
+        // $request->file('imagen')->storeAs('public/multimedia_folder', $nombreArchivo );
+        $temp= $publicacione->create(['descripcion'=>$request->descripcion, 'emprendimiento_id'=>$request->emprendimiento_id, ]);
+        $publicacione=Publicacione::find($temp);
         return $publicacione;
     }
 
@@ -55,7 +61,12 @@ class PublicacioneController extends Controller
      */
     public function update(Request $request, Publicacione $publicacione)
     {
-        $publicacione->update($request->all());
+        
+        // $publicacione['imagen'] = time() . '_' . $request->file(key: 'imagen')->getClientOriginalName();
+        // $request->file(key: 'imagen')->storeAs(path:'multimedia_folder', name: $publicacione['imagen']);
+        $publicacione->descripcion = $request->descripcion;
+        $publicacione->save();
+            
         return $publicacione;
     }
 
